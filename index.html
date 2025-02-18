@@ -7,64 +7,80 @@
     <style>
         body {
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #videoContainer {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #000;
+            padding: 10px;
+            border-radius: 8px;
         }
         video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover; /* Agar video full screen */
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .video-button {
+            padding: 10px 15px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .video-button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
+
     <h1>Daftar Video</h1>
-    <video controls autoplay>
-        <source src="video.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
 
-    <video controls autoplay>
-        <source src="AIR.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
+    <!-- Pemutar Video -->
+    <div id="videoContainer">
+        <video id="mainVideo" controls>
+            <source id="videoSource" src="PanasBumi.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+    </div>
 
-    <video controls autoplay>
-        <source src="ANGIN.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
+    <!-- Tombol Pilihan Video -->
+    <div class="video-list">
+        <button class="video-button" onclick="changeVideo('AIR.mp4')">Air</button>
+        <button class="video-button" onclick="changeVideo('ANGIN.mp4')">Angin</button>
+        <button class="video-button" onclick="changeVideo('BIOMASSA.mp4')">Biomassa</button>
+        <button class="video-button" onclick="changeVideo('MATAHARI.mp4')">Matahari</button>
+        <button class="video-button" onclick="changeVideo('NUKLIR.mp4')">Nuklir</button>
+        <button class="video-button" onclick="changeVideo('PanasBumi.mp4')">Panas Bumi</button>
+        <button class="video-button" onclick="changeVideo('UAP.mp4')">Uap</button>
+        <button class="video-button" onclick="changeVideo('DARIMANA.mp4')">Dari Mana</button>
+    </div>
 
-    <video controls autoplay>
-        <source src="BIOMASSA.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
+    <script>
+        function changeVideo(videoFile) {
+            var videoPlayer = document.getElementById("mainVideo");
+            var videoSource = document.getElementById("videoSource");
+            videoSource.src = videoFile;
+            videoPlayer.load();
+            videoPlayer.play();
+        }
+    </script>
 
-    <video controls autoplay>
-        <source src="MATAHARI.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
-
-    <video controls autoplay>
-        <source src="NUKLIR.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
-
-    <video controls autoplay>
-        <source src="PanasBumi.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
-  
-    <video controls autoplay>
-        <source src="UAP.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
-  
-    <video controls autoplay>
-        <source src="DARIMANA.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
 </body>
 </html>
