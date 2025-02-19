@@ -84,3 +84,53 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Video di Vercel</title>
+    <style>
+        body { text-align: center; background-color: #000; color: #fff; }
+        .video-container { margin: 10px; }
+        video { width: 80%; max-width: 800px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Daftar Video Streaming</h2>
+    <div id="videoList"></div>
+
+    <script>
+        const videos = [
+            "video.mp4",
+            "Darimana.mp4",
+            "Matahari.mp4",
+            "NUKLIR.mp4",
+            "PanasBumi.mp4",
+            "UAP.mp4",
+            "AIR.mp4",
+            "Angin.mp4",
+            "BIOMASSA.mp4",
+            "Rangkaian.mp4"
+        ];
+
+        const videoList = document.getElementById("videoList");
+
+        videos.forEach(video => {
+            const container = document.createElement("div");
+            container.classList.add("video-container");
+
+            const title = document.createElement("h3");
+            title.textContent = video;
+
+            const vid = document.createElement("video");
+            vid.setAttribute("controls", "");
+            vid.innerHTML = `<source src="${video}" type="video/mp4">`;
+
+            container.appendChild(title);
+            container.appendChild(vid);
+            videoList.appendChild(container);
+        });
+    </script>
+</body>
+</html>
